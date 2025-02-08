@@ -9,7 +9,7 @@
   background-color: #ffffff;
   font-family: 'Chakra Petch', sans-serif;
   box-shadow: inset 0px 0px 40px 10px rgba(0,0,0,0.1);
-  width: 100%; 
+  width: 100; 
 }
 
 .bodycontainer::-webkit-scrollbar {
@@ -32,8 +32,10 @@
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  width: fit-content;
   max-width: 80%;
+  width: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .bodycontainer .message .image {
@@ -41,6 +43,9 @@
   margin-top: 5px;
   height: 28px;
   width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bodycontainer .message .image img {
@@ -59,19 +64,23 @@
   font-size: 16px;
   line-height: 25px;
   white-space: pre-wrap;
-  word-break: break-word; 
+  word-break: break-word; /* Ensures long words wrap properly */
   max-width: 100%;
   margin: 0;
 }
 
 .mRight {
   margin-left: auto;
+  display: flex;
+  justify-content: flex-end; /* Aligns messages properly */
+  word-wrap: break-word;
 }
 
 .mRight p {
   border-radius: 10px;
   border-top-right-radius: 0;
   background-color: #046cf1;
+  word-wrap: break-word;
 }
 
 .bodycontainer .typing {
