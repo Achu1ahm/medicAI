@@ -1,31 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./pages/login/login";
+// import UserChat from "./pages/UserChat";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Router>
-      <div>        
-        {/* Define the routes */}
-        <Router>
-          <Routes>
-            {/* Public Route */}
-            <Route path='/login' element={<Login />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
 
-            {/* Protected Routes */}
-            <Route path="/doctor" element={<ProtectedRoute>
-              <UserChat />
-            </ProtectedRoute>} />
+          {/* <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <UserChat />
+              </ProtectedRoute>
+            }
+          /> */}
 
-            {/* Default Route */}
-            <Route path="/" element={<Navigate to="/login" replace />} ></Route>
+          <Route path="/" element={<Navigate to="/login" replace />} />
 
-            {/* Catch all route */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-          </Router>
-      </div>
-    </Router>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
