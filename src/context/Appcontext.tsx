@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
 import DOMPurify from "dompurify";
-import authService from "../services/auth.service";
 import apiService from "../services/api";
 import { AppContext, AppContextType, AppProviderProps, Message } from "../types";
 

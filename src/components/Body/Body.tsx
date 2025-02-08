@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import chatbot from "../../assets/robot.png";
 import user from "../../assets/user1.png";
 import styles from "./Body.module.css";
@@ -25,7 +26,7 @@ const Body = () => {
             ""
           )}
 
-          <p className={styles.text}>{msg.text}</p>
+<p className={styles.text}><ReactMarkdown>{msg.text}</ReactMarkdown></p>
           {msg.from !== "ai" ? (
             <div>
               <div className={styles.image}>
