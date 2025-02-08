@@ -4,8 +4,8 @@ import { Message } from '../types/context';
 class ApiService {
   async sendMessage(text: string): Promise<Message> {
     try {
-      const response = await axiosInstance.get("/chat");
-      const content = response.data.data.choices[0].message.content;
+      const response = await axiosInstance.get(`/chat?message=${text}`);
+      const content = response.data.messages.content;
       console.log(content);
       return {
         from: 'ai',
