@@ -3,10 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/mediclogo.png';
 import HoverTracker from '../../components/ui/hoverTracker';
 import './style.css';
+import { useAuth } from '../../context/AuthContext';
 
 const HomePage = () => {
 
     const navigate = useNavigate();
+    const { logout } = useAuth();
+    const handleAuth = () => {
+        logout();
+        navigate("/login", { replace: true });
+
+      };
 
     return (
         <div className="homepage">
@@ -24,7 +31,7 @@ const HomePage = () => {
 
                 <div className="nav-group">
                     <div className="nav-item" onClick={()=>navigate("/chat")} >CHATBOT</div>
-                    <div className="nav-item">LOGIN</div>
+                    <div className="nav-item" onClick={()=>handleAuth()}>{`${'login'}`}</div>
                 </div>
             </nav>
 
@@ -39,7 +46,7 @@ const HomePage = () => {
                     <p className="description">
                         We designed MedicAI to revolutionize healthcare with smart, fast, and reliable AI assistance.
                     </p>
-                    <button onClick={()=>navigate("/login")} className="glow-button">Try Now</button>
+                    <button onClick={()=>navigate("/chat")} className="glow-button">Try Now</button>
                 </div>
                 <HoverTracker />
             </div>

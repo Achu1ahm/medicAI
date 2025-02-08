@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Title from "../../components/Title/Title";
 import InputBar from "../../components/InputBar/InputBar";
 import Body from "../../components/Body/Body";
 import { ThreeCircles } from "react-loader-spinner";
 import styles from "./chat.module.css";
-import { useAuth } from "../../context/AuthContext";
 
 const UserChat = () => {
   const [loading, setLoading] = useState(false);
-  const { logout } = useAuth();
-  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -19,10 +15,6 @@ const UserChat = () => {
     }, 2000);
   }, []);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login", { replace: true });
-  };
 
   return (
     <>
