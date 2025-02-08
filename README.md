@@ -1,46 +1,175 @@
-# Getting Started with Create React App
+# Medical Chat Assistant - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend application for the Medical Chat Assistant with authentication and chat interface.
+
+## Requirements
+
+- Node.js >= 16.x
+- npm >= 8.x
+- React 18.x
+
+## Installation
+
+1. Clone the repository
+    ```bash
+    git clone <repository-url>
+    cd medical-chat-frontend
+    ```
+
+2. Install dependencies
+    ```bash
+    npm install
+    ```
+
+3. Create environment file
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Configure your .env file:
+    ```env
+    REACT_APP_API_URL=http://localhost:8000/api
+    REACT_APP_NAME="Medical Chat Assistant"
+    ```
+
+5. Start the development server
+    ```bash
+    npm start
+    ```
 
 ## Available Scripts
 
-In the project directory, you can run:
+- Start development server
+    ```bash
+    npm start
+    ```
 
-### `npm start`
+- Build for production
+    ```bash
+    npm run build
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Run tests
+    ```bash
+    npm test
+    ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Eject from Create React App
+    ```bash
+    npm run eject
+    ```
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```text
+src/
+├── components/          # React components
+│   ├── Login/
+│   ├── Register/
+│   ├── Chat/
+│   └── Common/
+├── context/            # React context providers
+├── utils/              # Utility functions
+├── services/           # API services
+├── hooks/              # Custom hooks
+└── assets/             # Static assets
+```
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- User authentication (login/register)
+- Protected routes
+- Real-time chat interface
+- Message history
+- Responsive design
+- Error handling
+- Loading states
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authentication
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Authentication is handled using JWT tokens stored in localStorage. Protected routes require authentication.
 
-### `npm run eject`
+## API Integration
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The application uses axios for API requests. Configuration can be found in `src/utils/axios.js`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Auth Components
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Login** - User login form
+- **Register** - User registration form
+- **ProtectedRoute** - Route wrapper for authenticated routes
 
-## Learn More
+### Chat Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **ChatInterface** - Main chat interface
+- **MessageList** - Displays chat messages
+- **MessageInput** - Input for new messages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## State Management
+
+- Authentication state is managed using React Context
+- Chat state is managed using local state and props
+
+## Styling
+
+- CSS Modules for component-specific styles
+- Responsive design using media queries
+- Consistent theme variables
+
+## Error Handling
+
+- Form validation
+- API error handling
+- User feedback through notifications
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Development
+
+- Follow coding standards
+- Write meaningful commit messages
+- Create feature branches
+- Add appropriate comments
+- Test thoroughly before PR
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
+
+These README files provide:
+
+- Clear installation instructions
+- Environment setup details
+- Available features and endpoints
+- Project structure
+- Development guidelines
+- API documentation
+- Security considerations
+- Error handling information
+
+You can customize these further based on your specific:
+
+- Deployment requirements
+- Additional features
+- Specific coding standards
+- Team workflows
+- CI/CD processes
+- Testing requirements
+- Documentation needs
+
+Remember to update the repository URLs, environment variables, and other placeholders with actual values.
